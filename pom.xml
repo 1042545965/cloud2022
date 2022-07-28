@@ -22,12 +22,12 @@
 
     <!--  通过springboot的 parent 来定义版本  在这里实现 如果有 parent 能管理的包 ,
     那么使用 parent 管理 没有那就 在 properties 中定义好版本-->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.12.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+<!--    <parent>-->
+<!--        <groupId>org.springframework.boot</groupId>-->
+<!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+<!--        <version>2.3.12.RELEASE</version>-->
+<!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+<!--    </parent>-->
 
     <!-- 统一 jar 包版本管理 保持与springboot 一致 -->
     <properties>
