@@ -1,4 +1,4 @@
-package com.dkz.springcloud.payment.entity;
+package com.dkz.springcloud.utils;
 
 
 import com.dkz.springcloud.enums.ResponseCode;

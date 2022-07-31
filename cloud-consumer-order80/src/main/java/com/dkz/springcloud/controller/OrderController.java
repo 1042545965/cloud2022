@@ -1,30 +1,26 @@
-package com.dkz.springcloud.payment.controller;
+package com.dkz.springcloud.controller;
 
 import com.dkz.springcloud.dto.PaymentDto;
-import com.dkz.springcloud.payment.service.PaymentService;
+import com.dkz.springcloud.service.feign.PaymentFeignService;
 import com.dkz.springcloud.utils.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/payment")
-public class PaymentController {
+@RequestMapping("/order")
+public class OrderController {
 
-    private final PaymentService paymentService;
 
-    public PaymentController(PaymentService paymentService) {
-        this.paymentService = paymentService;
-    }
+    @Autowired
+    private PaymentFeignService paymentFeignService;
 
-    /**
-     * 新增用户
-     */
+
     @GetMapping(value = "/getById/{paymentId}")
     public Result<PaymentDto> getById(@PathVariable("paymentId") Long paymentId) {
-        PaymentDto paymentDto = paymentService.getPaymentDtoById(paymentId);
-        return Result.ok(paymentDto);
+        return paymentFeignService.getPaymentById(paymentId);
     }
 
 }
