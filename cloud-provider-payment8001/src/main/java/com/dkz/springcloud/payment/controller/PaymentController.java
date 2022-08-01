@@ -36,4 +36,20 @@ public class PaymentController {
         return Result.ok(new PaymentDto());
     }
 
+    @GetMapping(value = "/getHystrixOk/{paymentId}")
+    Result<String> getHystrixOk(@PathVariable("paymentId") Long paymentId){
+        String resultString = "线程池 ：" + Thread.currentThread().getName() + "paymentId :" + paymentId;
+        return Result.ok(resultString);
+    }
+
+    @GetMapping(value = "/getHystrixTimeOut/{paymentId}")
+    Result<String> getHystrixTimeOut(@PathVariable("paymentId") Long paymentId){
+        return Result.ok(paymentService.getHystrixTimeOut(paymentId));
+    }
+
+    @GetMapping(value = "/getHystrixException/{paymentId}")
+    Result<String> getHystrixException(@PathVariable("paymentId") Long paymentId){
+        return Result.ok(paymentService.getHystrixException(paymentId));
+    }
+
 }

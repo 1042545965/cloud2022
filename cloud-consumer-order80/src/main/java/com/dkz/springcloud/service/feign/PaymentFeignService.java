@@ -15,4 +15,10 @@ public interface PaymentFeignService {
 
     @GetMapping(value = "/payment/getTimOutException/{paymentId}")
     Result<PaymentDto> getTimOutException(@PathVariable("paymentId") Long paymentId);
+
+    @GetMapping(value = "/payment/getHystrixOk/{paymentId}")
+    Result<String> getHystrixOk(@PathVariable("paymentId") Long paymentId);
+
+    @GetMapping(value = "/payment/getHystrixTimeOut/{paymentId}")
+    Result<String> getHystrixTimeOut(@PathVariable("paymentId") Long paymentId);
 }
