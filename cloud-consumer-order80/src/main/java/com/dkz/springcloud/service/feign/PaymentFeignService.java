@@ -12,4 +12,7 @@ public interface PaymentFeignService {
 
     @GetMapping(value = "/payment/getById/{paymentId}")
     Result<PaymentDto> getPaymentById(@PathVariable("paymentId") Long paymentId);
+
+    @GetMapping(value = "/payment/getTimOutException/{paymentId}")
+    Result<PaymentDto> getTimOutException(@PathVariable("paymentId") Long paymentId);
 }

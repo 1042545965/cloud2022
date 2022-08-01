@@ -23,4 +23,10 @@ public class OrderController {
         return paymentFeignService.getPaymentById(paymentId);
     }
 
+
+    @GetMapping(value = "/getTimOutException/{paymentId}")
+    public Result<PaymentDto> getTimOutException(@PathVariable("paymentId") Long paymentId) {
+        return paymentFeignService.getTimOutException(paymentId);
+    }
+
 }
