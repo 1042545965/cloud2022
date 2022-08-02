@@ -22,7 +22,13 @@ ribbon:
   #指的是建立连接后从服务器i读取到可用资源所用的时间
   ConnectTimeout: 5000
 
+
 logging:
   level:
     # feign月志以什么级别监控哪个接口 , 放在这里有一个好处 ，能使用配置中心实时生效 使用 info 就不会打印了
     com.dkz.springcloud.service.feign.PaymentFeignService: debug
+
+# 在 feign 当中开启 hystrix
+feign:
+  hystrix:
+    enabled: true

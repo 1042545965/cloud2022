@@ -1,12 +1,13 @@
 package com.dkz.springcloud.service.feign;
 
 import com.dkz.springcloud.dto.PaymentDto;
+import com.dkz.springcloud.service.impl.PaymentFeignFallbackService;
 import com.dkz.springcloud.utils.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(value = "CLOUD-PAYMENT-SERVICE")
+@FeignClient(value = "CLOUD-PAYMENT-SERVICE" , fallback = PaymentFeignFallbackService.class)
 public interface PaymentFeignService {
 
 
@@ -24,4 +25,8 @@ public interface PaymentFeignService {
 
     @GetMapping(value = "/payment/getHystrixException/{paymentId}")
     String getHystrixException(@PathVariable("paymentId") Long paymentId);
+
+    @GetMapping(value = "/payment/getNoHystrixTimeOut/{paymentId}")
+    Result<String> getNoHystrixTimeOut(@PathVariable("paymentId") Long paymentId);
+
 }

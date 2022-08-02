@@ -52,4 +52,15 @@ public class PaymentController {
         return Result.ok(paymentService.getHystrixException(paymentId));
     }
 
+
+    @GetMapping(value = "/getNoHystrixTimeOut/{paymentId}")
+    Result<String> getNoHystrixTimeOut(@PathVariable("paymentId") Long paymentId){
+        try {
+            TimeUnit.SECONDS.sleep(1L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return Result.ok("线程池 ：" + Thread.currentThread().getName() + "paymentId :" + paymentId);
+    }
+
 }
