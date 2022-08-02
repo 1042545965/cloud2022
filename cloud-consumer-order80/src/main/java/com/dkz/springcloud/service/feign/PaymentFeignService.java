@@ -20,5 +20,8 @@ public interface PaymentFeignService {
     Result<String> getHystrixOk(@PathVariable("paymentId") Long paymentId);
 
     @GetMapping(value = "/payment/getHystrixTimeOut/{paymentId}")
-    Result<String> getHystrixTimeOut(@PathVariable("paymentId") Long paymentId);
+    String getHystrixTimeOut(@PathVariable("paymentId") Long paymentId);
+
+    @GetMapping(value = "/payment/getHystrixException/{paymentId}")
+    String getHystrixException(@PathVariable("paymentId") Long paymentId);
 }
