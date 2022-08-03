@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(value = "CLOUD-PAYMENT-SERVICE" , fallback = PaymentFeignFallbackService.class)
+@FeignClient(value = "CLOUD-PAYMENT-SERVICE" , fallback = PaymentFeignFallbackService.class , contextId = "paymentFeign")
 public interface PaymentFeignService {
 
 
@@ -21,12 +21,17 @@ public interface PaymentFeignService {
     Result<String> getHystrixOk(@PathVariable("paymentId") Long paymentId);
 
     @GetMapping(value = "/payment/getHystrixTimeOut/{paymentId}")
-    String getHystrixTimeOut(@PathVariable("paymentId") Long paymentId);
+    Result<String> getHystrixTimeOut(@PathVariable("paymentId") Long paymentId);
 
     @GetMapping(value = "/payment/getHystrixException/{paymentId}")
-    String getHystrixException(@PathVariable("paymentId") Long paymentId);
+    Result<String> getHystrixException(@PathVariable("paymentId") Long paymentId);
 
     @GetMapping(value = "/payment/getNoHystrixTimeOut/{paymentId}")
     Result<String> getNoHystrixTimeOut(@PathVariable("paymentId") Long paymentId);
 
+    @GetMapping(value = "/payment/getNoHystrixTimeOut/{paymentId}")
+    Result<String> getDefaultHystrixFeignTimeOut(@PathVariable("paymentId") Long paymentId);
+
+    @GetMapping(value = "/payment/getInterfaceHystrixFeignTimeOut/{paymentId}")
+    Result<String> getInterfaceHystrixFeignTimeOut(@PathVariable("paymentId")Long paymentId);
 }

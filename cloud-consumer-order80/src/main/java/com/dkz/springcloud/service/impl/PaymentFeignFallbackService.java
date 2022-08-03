@@ -23,17 +23,27 @@ public class PaymentFeignFallbackService implements PaymentFeignService {
     }
 
     @Override
-    public String getHystrixTimeOut(Long paymentId) {
-        return "-----PaymentFeignFallbackService fall back getHystrixException ,o(T- T)o";
+    public Result<String>  getHystrixTimeOut(Long paymentId) {
+        return Result.ok("-----PaymentFeignFallbackService fall back getHystrixException ,o(T- T)o");
     }
 
     @Override
-    public String getHystrixException(Long paymentId) {
-        return "-----PaymentFeignFallbackService fall back getHystrixException ,o(T- T)o";
+    public Result<String>  getHystrixException(Long paymentId) {
+        return Result.ok("-----PaymentFeignFallbackService fall back getHystrixException ,o(T- T)o");
     }
 
     @Override
     public Result<String> getNoHystrixTimeOut(Long paymentId) {
         return Result.ok("-----PaymentFeignFallbackService fall back getNoHystrixTimeOut ,o(T- T)o");
+    }
+
+    @Override
+    public Result<String> getDefaultHystrixFeignTimeOut(Long paymentId) {
+        return Result.ok("-----PaymentFeignFallbackService fall back getDefaultHystrixFeignTimeOut ,o(T- T)o");
+    }
+
+    @Override
+    public Result<String> getInterfaceHystrixFeignTimeOut(Long paymentId) {
+        return Result.ok("-----PaymentFeignFallbackService fall back getInterfaceHystrixFeignTimeOut ,o(T- T)o");
     }
 }

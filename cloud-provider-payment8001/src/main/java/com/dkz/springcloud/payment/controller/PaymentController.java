@@ -56,7 +56,17 @@ public class PaymentController {
     @GetMapping(value = "/getNoHystrixTimeOut/{paymentId}")
     Result<String> getNoHystrixTimeOut(@PathVariable("paymentId") Long paymentId){
         try {
-            TimeUnit.SECONDS.sleep(1L);
+            TimeUnit.SECONDS.sleep(6L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return Result.ok("线程池 ：" + Thread.currentThread().getName() + "paymentId :" + paymentId);
+    }
+
+    @GetMapping(value = "/getInterfaceHystrixFeignTimeOut/{paymentId}")
+    Result<String> getInterfaceHystrixFeignTimeOut(@PathVariable("paymentId") Long paymentId){
+        try {
+            TimeUnit.SECONDS.sleep(10L);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

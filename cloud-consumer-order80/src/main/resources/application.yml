@@ -30,5 +30,24 @@ logging:
 
 # 在 feign 当中开启 hystrix
 feign:
-  hystrix:
+  circuitbreaker:
     enabled: true
+
+#hystrix:
+hystrix:
+  command:
+    # 默认的全局设置
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+    # 将降级设置到具体的调用方法
+    PaymentFeignService#getNoHystrixTimeOut(Long):
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 8000
+
+
+
