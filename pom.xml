@@ -13,6 +13,7 @@
         <module>cloud-api-commons</module>
         <module>cloud-eureka-server7001</module>
         <module>cloud-eureka-server7002</module>
+        <module>cloud-consumer-hystrix-dashboard9001</module>
     </modules>
     <!-- 表明是一个maven项目 -->
     <packaging>pom</packaging>
