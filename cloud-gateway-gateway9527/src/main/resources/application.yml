@@ -15,10 +15,13 @@ spring:
         - id: payment_routh
         # 匹配后 ， 提供的服务的路由地址 , 使用注册中心
           uri: lb://CLOUD-PAYMENT-SERVICE
-        # 断言 路径匹配进行路由   https://blog.csdn.net/riemann_/article/details/115419357 各类谓词匹配的博客
+        # 断言 路径匹配进行路由
           predicates:
             - Path=/payment/**
-
+            # 如果时间在这个之后 那么访问这个地址 ，延迟上线可以这也使用  测试 curl localhost:9527/payment/getById/1
+            - After=2022-08-05T15:27:03.658+08:00[Asia/Shanghai]
+            # 一定要带上 cookie username=dkz  curl localhost:9527/payment/getById/1 --cookie "username=dkz"
+            - Cookie=username, dkz
 eureka:
   client:
     #表示是否将自己注册进EurekaServer默认为true
