@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GatewayConfig {
 
+    // 这种方式是不推荐的
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder routeLocatorBuilder){
         Builder routes = routeLocatorBuilder.routes();
