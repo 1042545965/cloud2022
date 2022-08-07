@@ -102,6 +102,11 @@
                 <version>${hutool.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.dkz.springcloud</groupId>
+                <artifactId>cloud-api-commons</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
 
         </dependencies>
