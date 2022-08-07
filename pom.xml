@@ -16,6 +16,7 @@
         <module>cloud-consumer-hystrix-dashboard9001</module>
         <module>cloudalibaba-provider-payment9002</module>
         <module>cloudalibaba-consumer-nacos-order83</module>
+        <module>cloud-gateway-gateway9527</module>
     </modules>
     <!-- 表明是一个maven项目 -->
     <packaging>pom</packaging>
@@ -101,11 +102,7 @@
                 <version>${hutool.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.dkz.springcloud</groupId>
-                <artifactId>cloud-api-commons</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+
 
         </dependencies>
     </dependencyManagement>
