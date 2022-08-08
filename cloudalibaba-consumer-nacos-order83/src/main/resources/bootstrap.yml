@@ -11,6 +11,8 @@ spring:
       config:
         server-addr: 127.0.0.1:8848
         file-extension: yaml
+        group: DEFAULT_GROUP
+        #namespace: 命名空间
 
 #${prefix}-${spring.profiles.active}.${file-extension} 具体情况查看 官网 配置 有详细讲解
 #dataId = nacos-order-consumer-dev.yaml
