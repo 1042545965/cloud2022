@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: nacos-order-consumer
+    name: nacos-sentinel-order-consumer
   cloud:
     nacos:
       discovery:
@@ -13,6 +13,13 @@ spring:
         file-extension: yaml
         group: DEFAULT_GROUP
         #namespace: 命名空间
+    sentinel:
+      transport:
+        #配置sentinel dashboard地址
+        dashboard: localhost:8080
+        #默认8719端口，假如被占用会自动从8719开始依次+1扫描,直至找到未被占用的端口
+        port: 8719
+
 
 #${prefix}-${spring.profiles.active}.${file-extension} 具体情况查看 官网 配置 有详细讲解
 #dataId = nacos-order-consumer-dev.yaml

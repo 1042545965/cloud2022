@@ -22,7 +22,7 @@ public class OrderController {
     @Value( "${service-url.nacos-user-service}")
     private String serverURL;
 
-    @Value( "${config.info}")
+    @Value( "${config.info:configInfo}")
     private String configInfo;
 
 
